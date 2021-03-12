@@ -48,15 +48,28 @@ class _MainWidget extends StatelessWidget {
 }
 ```
 
-You can also extend `BindingInjectorWidget` to configure your dependencies:
+You can also extend `WidgetModule` to configure your dependencies:
 
 ```dart
-class MyBinder extends ModuleWidget {
-  MyBinder({Key key, @required Widget child}): super(key: key, child: child);
+class MainModule extends WidgetModule {
+  MainModule(BuildContext context) : super(context);
+
+  @override
+  void configureWidget(Binder binder) {
+    binder..bindLazySingleton((i, _) => MainBloc(i.get(), i.get()));
+
+    binder..bindLazySingleton((i, _) => MainNavigator(i.get()));
+  }
+}
+```
+
+or use common dart module
+
+```dart
+class TestModule extends Module {
   @override
   void configure(Binder binder) {
-    binder
-      ..bindSingleton(Object());
+    // impl
   }
 }
 ```
@@ -83,6 +96,82 @@ class SomeWidget extends StatelessWidget with InjectorWidgetMixin {
     final object = injector.get<Object>();
     print(object);
     return Container();
+  }
+}
+```
+
+
+# Full api
+
+## ChildInjectorWidget
+
+Creates a new module containing the child module and parent dependencies
+
+```dart
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChildInjectorWidget(
+      childModule: MainModule(context),
+      injectorBuilder: (injector) {
+       ...
+      },
+    );
+  }
+}
+```
+
+## InjectorWidget
+```dart
+@override
+Widget build(BuildContext context) {
+  return InjectorWidget(
+    child: Text(""),
+    injector: Injector.fromModule(module: ...),
+    autoDispose: true, // default: true
+  );
+}
+```
+
+## InjectorWidgetMixin
+```dart
+class TestWidget with InjectorWidgetMixin {
+  @override
+  Widget buildWithInjector(BuildContext context, Injector injector) {
+    injector.get(name: "test_key");
+    return Container();
+  }
+}
+```
+
+## WithInjectorWidget & WithInstanceWidget
+```dart
+@override
+Widget build(BuildContext context) {
+  return WithInjectorWidget(
+    builder: (injector) {
+      injector.get(name: "test");
+      return Container();
+    },
+  );
+}
+
+@override
+Widget build(BuildContext context) {
+  return WithInstanceWidget<SharedPreferences>(
+    builder: (sharedPrefs) {
+      return Container();
+    },
+  );
+}
+```
+
+## ModuleWidget
+```dart
+class TestWidget extends ModuleWidget {
+  @override
+  void configure(Binder binder) {
+    
   }
 }
 ```

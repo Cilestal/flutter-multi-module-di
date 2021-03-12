@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 import 'package:flutter_multi_module_di_example/bloc/main_bloc.dart';
-import 'package:flutter_multi_module_di_example/common/widget_module.dart';
 import 'package:flutter_multi_module_di_example/navigator/main_navigator.dart';
 
 class MainModule extends WidgetModule {

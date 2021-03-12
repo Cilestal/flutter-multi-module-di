@@ -73,3 +73,5 @@ part 'src/registry/_injector_registry_container.dart';
 part 'src/registry/injector_mixin.dart';
 
 part 'src/registry/injector_registry.dart';
+
+part 'src/utils/widget_module.dart';
