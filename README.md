@@ -1,3 +1,5 @@
+[![pub package](https://img.shields.io/pub/v/flutter_multi_module_di.svg)](https://pub.dartlang.org/packages/flutter_multi_module_di)
+
 # Flutter multi module dependency injection
 
 An easy-to-use DI that works based on a dependency tree. 
