@@ -1,6 +1,6 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
-class _EmptyInjector extends Object with DisposableMixin implements Injector {
+class _EmptyInjector extends Object with DisposableObject implements Injector {
   @override
   final String name;
   @override
@@ -23,7 +23,7 @@ class _EmptyInjector extends Object with DisposableMixin implements Injector {
   }
 
   @override
-  void doDispose() {}
+  void disposeInstance() {}
 
   @override
   InjectorBuilder child() {

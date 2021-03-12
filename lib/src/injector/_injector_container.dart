@@ -2,7 +2,7 @@ part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 class _InjectorContainer extends _InjectorBase {
   @override
-  bool get isDisposed => container.isDisposed;
+  bool get disposed => container.disposed;
   final _RegistrationContainer container;
 
   @override
@@ -29,4 +29,7 @@ class _InjectorContainer extends _InjectorBase {
   InjectorBuilder child() {
     return _InjectorBuilderContainer.from(this);
   }
+
+  @override
+  void disposeInstance() { }
 }

@@ -13,9 +13,9 @@ class _SingletonRegistration<T> extends _Registration<T>
   }
 
   @override
-  void doDispose() {
-    if (instance is Disposable) {
-      final disposable = instance as Disposable;
+  void disposeInstance() {
+    if (instance is DisposableObject) {
+      final disposable = instance as DisposableObject;
       disposable.dispose();
     }
   }

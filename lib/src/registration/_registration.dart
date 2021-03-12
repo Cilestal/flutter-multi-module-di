@@ -1,6 +1,6 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
-abstract class _Registration<T> extends Binding<T> with DisposableMixin {
+abstract class _Registration<T> extends Binding<T> with DisposableObject {
   @override
   Type get type => T;
   @override

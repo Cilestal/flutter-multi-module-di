@@ -1,6 +1,6 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
-class _RegistrationContainer extends Object with DisposableMixin {
+class _RegistrationContainer extends Object with DisposableObject {
   final Map<String, _Registration> registrations = {};
 
   void put(Type type, String name, _Registration registration,
@@ -34,7 +34,7 @@ class _RegistrationContainer extends Object with DisposableMixin {
   }
 
   @override
-  void doDispose() {
+  void disposeInstance() {
     final values = registrations.values;
     values.forEach((disposable) => disposable.dispose());
     registrations.clear();

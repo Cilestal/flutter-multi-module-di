@@ -3,7 +3,7 @@ part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 String _nameOrDefault(String name) => name ?? "injector";
 
 /// Dependency injection container.
-abstract class Injector implements Disposable {
+abstract class Injector implements DisposableObject {
   /// The name of the injector.
   String get name;
 

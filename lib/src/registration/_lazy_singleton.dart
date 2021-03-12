@@ -21,9 +21,9 @@ class _LazySingletonRegistration<T> extends _Registration<T>
   }
 
   @override
-  void doDispose() {
-    if (isInstantiated && instance is Disposable) {
-      final disposable = instance as Disposable;
+  void disposeInstance() {
+    if (isInstantiated && instance is DisposableObject) {
+      final disposable = instance as DisposableObject;
       disposable.dispose();
     }
   }

@@ -8,6 +8,6 @@ environment:
 
 dependencies:
   quiver: ^2.0.1
-  disposables: ^0.1.2
+  disposable_object: ^2.0.0
   flutter:
     sdk: flutter

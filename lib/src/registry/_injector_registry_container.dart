@@ -1,7 +1,7 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 class _InjectorRegistryContainer extends Object
-    with DisposableMixin
+    with DisposableObject
     implements InjectorRegistry {
   final Map<String, Injector> _map = {};
 
@@ -41,7 +41,7 @@ class _InjectorRegistryContainer extends Object
   }
 
   @override
-  void doDispose() {
+  void disposeInstance() {
     _map.values.forEach((injector) => injector.dispose());
     _map.clear();
   }

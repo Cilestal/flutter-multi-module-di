@@ -13,5 +13,5 @@ class _FactoryRegistration<T> extends _Registration<T>
   }
 
   @override
-  void doDispose() {}
+  void disposeInstance() {}
 }

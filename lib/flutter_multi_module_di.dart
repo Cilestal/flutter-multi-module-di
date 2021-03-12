@@ -1,7 +1,7 @@
 /// Dependency injection container for dart.
 library multi_module_di;
 
-import 'package:disposables/disposables.dart';
+import 'package:disposable_object/disposable_object.dart';
 import 'package:flutter/material.dart';
 import 'package:quiver/check.dart';
 import 'package:quiver/core.dart';

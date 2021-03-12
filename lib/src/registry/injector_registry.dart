@@ -1,7 +1,7 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 /// Dependency injection container static factory.
-abstract class InjectorRegistry implements Disposable {
+abstract class InjectorRegistry implements DisposableObject {
   /// Gets the singleton instance.
   static final InjectorRegistry instance = InjectorRegistry();
 
