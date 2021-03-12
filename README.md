@@ -8,6 +8,12 @@ dependencies:
     flutter_multi_module_di: latest_version
 ```
 
+## Multi module example
+
+You can use a dependency tree for the entire application, widget and component.
+<img src="https://raw.githubusercontent.com/cilestal/flutter-multi-module-di/main/diag.png" align = "middle" height = "800">
+
+
 ## Usage
 
 ```dart
