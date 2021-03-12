@@ -1,10 +1,10 @@
 /// Dependency injection container for dart.
 library multi_module_di;
 
+import 'dart:collection';
+
 import 'package:disposable_object/disposable_object.dart';
 import 'package:flutter/material.dart';
-import 'package:quiver/check.dart';
-import 'package:quiver/core.dart';
 
 part 'src/binding/_binder_container.dart';
 
@@ -73,5 +73,7 @@ part 'src/registry/_injector_registry_container.dart';
 part 'src/registry/injector_mixin.dart';
 
 part 'src/registry/injector_registry.dart';
+
+part 'src/utils/optional.dart';
 
 part 'src/utils/widget_module.dart';
