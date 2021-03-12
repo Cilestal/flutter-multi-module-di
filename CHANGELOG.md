@@ -9,3 +9,6 @@
 
 ## 2.0.0
 - Sound null safety
+
+## 2.0.1
+- Removed quiver
