@@ -8,7 +8,6 @@ class _MapParams implements Params {
 
   @override
   bool contains(String name) {
-    checkNotNull(name, message: () => "name can't be null");
     return delegate.containsKey(name);
   }
 
@@ -22,7 +21,6 @@ class _MapParams implements Params {
 
   @override
   Optional<T> getOptional<T>(String name) {
-    checkNotNull(name, message: () => "name can't be null");
     return Optional.fromNullable(delegate[name] as T);
   }
 }

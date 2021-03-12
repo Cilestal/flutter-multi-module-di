@@ -5,10 +5,10 @@ class _SingletonRegistration<T> extends _Registration<T>
   @override
   final T instance;
 
-  _SingletonRegistration(this.instance, String name) : super(name);
+  _SingletonRegistration(this.instance, String? name) : super(name);
 
   @override
-  T getInstance(Injector injector, Params params) {
+  T getInstance(Injector injector, Params? params) {
     return instance;
   }
 

@@ -2,13 +2,11 @@ part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 class _InjectorBuilderContainer extends _BinderContainer
     implements InjectorBuilder {
-  String name;
+  String? name;
 
   _InjectorBuilderContainer();
 
   void setName(String name) {
-    checkArgument(name != null && name.isNotEmpty,
-        message: () => "name can't be null");
     this.name = name;
   }
 

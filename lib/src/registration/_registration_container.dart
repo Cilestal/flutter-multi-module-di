@@ -3,8 +3,8 @@ part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 class _RegistrationContainer extends Object with DisposableObject {
   final Map<String, _Registration> registrations = {};
 
-  void put(Type type, String name, _Registration registration,
-      {bool override}) {
+  void put(Type type, String? name, _Registration registration,
+      {bool? override}) {
     final key = _getKey(type, name);
 
     final contains = registrations.containsKey(key);
@@ -16,20 +16,20 @@ class _RegistrationContainer extends Object with DisposableObject {
     registrations[key] = registration;
   }
 
-  _Registration get(Type type, String name) {
+  _Registration get(Type type, String? name) {
     final key = _getKey(type, name);
     if (!registrations.containsKey(key)) {
       throw InjectionException._internal("Can't get unregistered key `$key`");
     }
-    return registrations[key];
+    return registrations[key]!;
   }
 
-  bool contains(Type type, String name) {
+  bool contains(Type type, String? name) {
     final key = _getKey(type, name);
     return registrations.containsKey(key);
   }
 
-  String _getKey(Type type, String name) {
+  String _getKey(Type type, String? name) {
     return "type:${type}_name:${name ?? "default"}";
   }
 

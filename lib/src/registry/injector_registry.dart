@@ -10,7 +10,7 @@ abstract class InjectorRegistry implements DisposableObject {
   factory InjectorRegistry() => _InjectorRegistryContainer();
 
   /// Gets an injector from this [InjectorRegistry].
-  Injector get({String name});
+  Injector get({String? name});
 
   /// Registers the given [Injector] in this [InjectorRegistry].
   void register(Injector injector, {bool override});

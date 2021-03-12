@@ -27,7 +27,6 @@ abstract class Params {
 
   /// Creates a [Param] instance from another.
   factory Params.fromParams(Params params) {
-    checkNotNull(params, message: () => "params can't be null");
     return (builder()..putParams(params)).build();
   }
 

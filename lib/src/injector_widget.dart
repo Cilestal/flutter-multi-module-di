@@ -6,39 +6,35 @@ class InjectorWidget extends StatefulWidget {
   final Widget child;
   final bool autoDispose;
 
-  const InjectorWidget._internal(
-      {@required this.injector,
-      Key key,
-      @required this.child,
-      this.autoDispose})
-      : super(key: key);
+  const InjectorWidget._internal({
+    required this.injector,
+    Key? key,
+    required this.child,
+    this.autoDispose = true,
+  }) : super(key: key);
 
   /// Creates an [InjectorWidget] based on an [Injector].
-  factory InjectorWidget(
-      {Key key,
-      @required Injector injector,
-      @required Widget child,
-      bool autoDispose = true}) {
-    checkNotNull(injector, message: () => "injector can't be null");
-    checkNotNull(child, message: () => "child can't be null");
-
+  factory InjectorWidget({
+    Key? key,
+    required Injector injector,
+    required Widget child,
+    bool autoDispose = true,
+  }) {
     return InjectorWidget._internal(
       key: key,
       injector: injector,
       child: child,
-      autoDispose: autoDispose ?? true,
+      autoDispose: autoDispose,
     );
   }
 
   /// Creates an [InjectorWidget] based on a [BinderFunc].
-  factory InjectorWidget.bind(
-      {Key key,
-      @required BindFunc bindFunc,
-      @required Widget child,
-      bool autoDispose = true}) {
-    checkNotNull(bindFunc, message: () => "binder can't be null");
-    checkNotNull(child, message: () => "child can't be null");
-
+  factory InjectorWidget.bind({
+    Key? key,
+    required BindFunc bindFunc,
+    required Widget child,
+    bool autoDispose = true,
+  }) {
     return InjectorWidget(
         key: key,
         injector: Injector(bindFunc: bindFunc),
@@ -82,9 +78,11 @@ class _InjectorWidgetState extends State<InjectorWidget> {
 class _InjectorInheritedWidget extends InheritedWidget {
   final Injector injector;
 
-  const _InjectorInheritedWidget(
-      {@required this.injector, Key key, @required Widget child})
-      : super(key: key, child: child);
+  const _InjectorInheritedWidget({
+    required this.injector,
+    Key? key,
+    required Widget child,
+  }) : super(key: key, child: child);
 
   @override
   bool updateShouldNotify(_InjectorInheritedWidget oldWidget) {

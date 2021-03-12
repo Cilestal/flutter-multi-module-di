@@ -7,7 +7,7 @@ abstract class Binding<T> {
   Type get type;
 
   /// The name of this [Binding] or `null`.
-  String get name;
+  String? get name;
 }
 
 /// Represents a [Binding] containing an instance.

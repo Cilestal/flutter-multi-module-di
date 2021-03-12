@@ -1,7 +1,7 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 /// Represents a factory able to create instances of type [T].
-typedef T ObjectFactory<T>(Injector injector, Params params);
+typedef T ObjectFactory<T>(Injector injector, Params? params);
 
 /// A function used to add the bindings to an [Injector].
 typedef void BindFunc(Binder binder);

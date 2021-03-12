@@ -8,10 +8,11 @@ typedef Widget InjectorWidgetBuilder(Injector injector);
 class WithInjectorWidget extends StatelessWidget with InjectorWidgetMixin {
   final InjectorWidgetBuilder builder;
 
-  const WithInjectorWidget._internal({Key key, this.builder}) : super(key: key);
+  const WithInjectorWidget._internal({Key? key, required this.builder})
+      : super(key: key);
 
-  factory WithInjectorWidget({Key key, InjectorWidgetBuilder builder}) {
-    checkNotNull(builder, message: () => "builder can't be null");
+  factory WithInjectorWidget(
+      {Key? key, required InjectorWidgetBuilder builder}) {
     return WithInjectorWidget._internal(
       key: key,
       builder: builder,
@@ -31,19 +32,21 @@ typedef Widget InstanceBuilder<T>(T instance);
 /// in the current [BuildContext].
 class WithInstanceWidget<T> extends StatelessWidget {
   final InstanceBuilder builder;
-  final String name;
-  final Params params;
+  final String? name;
+  final Params? params;
 
   const WithInstanceWidget._internal({
-    Key key,
-    this.builder,
+    Key? key,
+    required this.builder,
     this.name,
     this.params,
   }) : super(key: key);
 
   factory WithInstanceWidget(
-      {Key key, InstanceBuilder builder, String name, Params params}) {
-    checkNotNull(builder, message: () => "builder can't be null");
+      {Key? key,
+      required InstanceBuilder builder,
+      String? name,
+      Params? params}) {
     return WithInstanceWidget._internal(
       key: key,
       builder: builder,
@@ -67,10 +70,10 @@ class ChildInjectorWidget extends StatelessWidget with InjectorWidgetMixin {
   final InjectorWidgetBuilder injectorBuilder;
 
   ChildInjectorWidget({
-    Key key,
+    Key? key,
     this.autoDispose = true,
-    @required this.childModule,
-    @required this.injectorBuilder,
+    required this.childModule,
+    required this.injectorBuilder,
   }) : super(key: key);
 
   @override

@@ -1,13 +1,13 @@
 name: flutter_multi_module_di
 description: A simple and modular dependency injection system for Flutter.
-version: 1.0.2
+version: 2.0.0
 repository: https://github.com/Cilestal/flutter-multi-module-di
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  quiver: ^2.0.1
+  quiver: ^3.0.0
   disposable_object: ^2.0.0
   flutter:
     sdk: flutter

@@ -4,7 +4,10 @@ part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 abstract class ModuleWidget extends StatelessWidget implements Configurer {
   final Widget child;
 
-  const ModuleWidget({Key key, @required this.child}) : super(key: key);
+  const ModuleWidget({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

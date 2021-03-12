@@ -5,10 +5,10 @@ class _FactoryRegistration<T> extends _Registration<T>
   @override
   final ObjectFactory<T> factory;
 
-  _FactoryRegistration(this.factory, String name) : super(name);
+  _FactoryRegistration(this.factory, String? name) : super(name);
 
   @override
-  T getInstance(Injector injector, Params params) {
+  T getInstance(Injector injector, Params? params) {
     return factory(injector, params);
   }
 

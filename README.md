@@ -7,6 +7,10 @@ An easy-to-use DI that works based on a dependency tree.
 # Installation
 In the `dependencies:` section of your `pubspec.yaml`, add the following line:
 
+<b>Important note:</b>
+
+From 2.0.0 and onwards, flutter_multi_module_di uses null-safe code.
+
 ```yaml
 dependencies:
     flutter_multi_module_di: latest_version

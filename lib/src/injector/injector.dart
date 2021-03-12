@@ -1,6 +1,6 @@
 part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
-String _nameOrDefault(String name) => name ?? "injector";
+String _nameOrDefault(String? name) => name ?? "injector";
 
 /// Dependency injection container.
 abstract class Injector implements DisposableObject {
@@ -12,13 +12,13 @@ abstract class Injector implements DisposableObject {
   Iterable<Binding> get bindings;
 
   /// Gets a dependency from the container with optional [name] and [params].
-  T get<T>({String name, Params params});
+  T get<T>({String? name, Params? params});
 
   /// Gets an [Optional] to handle if the registration doesn't exist.
-  Optional<T> getOptional<T>({String name, Params params});
+  Optional<T> getOptional<T>({String? name, Params? params});
 
   /// Checks whether the container has a given binding.
-  bool contains<T>({String name});
+  bool contains<T>({String? name});
 
   /// Disposes this [Injector] which will clear all the
   /// dependencies and call [Disposable.dispose] on all
@@ -30,8 +30,7 @@ abstract class Injector implements DisposableObject {
 
   /// Creates an [Injector] from it's bindings.
   factory Injector(
-      {@required BindFunc bindFunc, String name, Injector parent}) {
-    checkNotNull(bindFunc, message: () => "bindFunc can't be null");
+      {required BindFunc bindFunc, String? name, Injector? parent}) {
     final b = parent?.child() ?? Injector.builder();
     if (name != null) b.setName(name);
     bindFunc(b);
@@ -39,22 +38,20 @@ abstract class Injector implements DisposableObject {
   }
 
   /// Creates an empty [Injector].
-  factory Injector.empty({String name}) {
+  factory Injector.empty({String? name}) {
     return _EmptyInjector();
   }
 
   /// Creates an [Injector] from a [Module].
   factory Injector.fromModule(
-      {@required Module module, String name, Injector parent}) {
-    checkNotNull(module, message: () => "module can't be null");
+      {required Module module, String? name, Injector? parent}) {
     return Injector(
         name: name, bindFunc: (bind) => bind.install(module), parent: parent);
   }
 
   /// Creates an [Injector] from a list of [Module] instances.
   factory Injector.fromModules(
-      {@required Iterable<Module> modules, String name, Injector parent}) {
-    checkNotNull(modules, message: () => "modules can't be null");
+      {required Iterable<Module> modules, String? name, Injector? parent}) {
     return Injector.fromModule(
         name: name, module: Module.compose(modules), parent: parent);
   }
