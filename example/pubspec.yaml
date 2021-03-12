@@ -1,0 +1,25 @@
+name: flutter_multi_module_di_example
+description: A simple and modular dependency injection system for Flutter.
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_multi_module_di:
+    path: ../
+  shared_preferences: ^2.0.4
+  flutter_bloc: ^6.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.cilestal.example
+    iosBundleIdentifier: com.cilestal.example
