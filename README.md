@@ -1,5 +1,7 @@
 # Flutter multi module dependency injection
 
+An easy-to-use DI that works based on a dependency tree. 
+
 # Installation
 In the `dependencies:` section of your `pubspec.yaml`, add the following line:
 
