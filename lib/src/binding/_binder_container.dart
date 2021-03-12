@@ -4,7 +4,6 @@ class _BinderContainer extends _RegistrationContainer implements Binder {
   @override
   _FactoryRegistration<T> bindFactory<T>(ObjectFactory<T> factory,
       {String? name, bool? override}) {
-
     final registration = _FactoryRegistration(factory, name);
     put(T, name, registration, override: override);
     return registration;
@@ -13,7 +12,6 @@ class _BinderContainer extends _RegistrationContainer implements Binder {
   @override
   _LazySingletonRegistration<T> bindLazySingleton<T>(ObjectFactory<T> factory,
       {String? name, bool? override}) {
-
     final registration = _LazySingletonRegistration(factory, name);
     put(T, name, registration, override: override);
     return registration;

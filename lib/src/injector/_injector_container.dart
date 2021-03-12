@@ -31,5 +31,5 @@ class _InjectorContainer extends _InjectorBase {
   }
 
   @override
-  void disposeInstance() { }
+  void disposeInstance() {}
 }
