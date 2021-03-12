@@ -3,7 +3,6 @@ library multi_module_di;
 
 import 'package:disposables/disposables.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:quiver/check.dart';
 import 'package:quiver/core.dart';
 

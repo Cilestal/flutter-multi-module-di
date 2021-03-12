@@ -1,4 +1,4 @@
-part of 'package:flutter_multi_module_di/multi_module_di.dart';
+part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 String _nameOrDefault(String name) => name ?? "injector";
 
@@ -29,7 +29,8 @@ abstract class Injector implements Disposable {
   InjectorBuilder child();
 
   /// Creates an [Injector] from it's bindings.
-  factory Injector({@required BindFunc bindFunc, String name, Injector parent}) {
+  factory Injector(
+      {@required BindFunc bindFunc, String name, Injector parent}) {
     checkNotNull(bindFunc, message: () => "bindFunc can't be null");
     final b = parent?.child() ?? Injector.builder();
     if (name != null) b.setName(name);
@@ -43,16 +44,19 @@ abstract class Injector implements Disposable {
   }
 
   /// Creates an [Injector] from a [Module].
-  factory Injector.fromModule({@required Module module, String name, Injector parent}) {
+  factory Injector.fromModule(
+      {@required Module module, String name, Injector parent}) {
     checkNotNull(module, message: () => "module can't be null");
-    return Injector(name: name, bindFunc: (bind) => bind.install(module), parent: parent);
+    return Injector(
+        name: name, bindFunc: (bind) => bind.install(module), parent: parent);
   }
 
   /// Creates an [Injector] from a list of [Module] instances.
   factory Injector.fromModules(
       {@required Iterable<Module> modules, String name, Injector parent}) {
     checkNotNull(modules, message: () => "modules can't be null");
-    return Injector.fromModule(name: name, module: Module.compose(modules), parent: parent);
+    return Injector.fromModule(
+        name: name, module: Module.compose(modules), parent: parent);
   }
 
   /// Creates a [InjectorBuilder] to create [Injector] instances.

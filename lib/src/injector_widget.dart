@@ -1,4 +1,4 @@
-part of 'package:flutter_multi_module_di/multi_module_di.dart';
+part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 /// [InheritedWidget] containing an [Injector].
 class InjectorWidget extends StatefulWidget {
@@ -6,11 +6,19 @@ class InjectorWidget extends StatefulWidget {
   final Widget child;
   final bool autoDispose;
 
-  const InjectorWidget._internal({@required this.injector, Key key, @required this.child, this.autoDispose})
+  const InjectorWidget._internal(
+      {@required this.injector,
+      Key key,
+      @required this.child,
+      this.autoDispose})
       : super(key: key);
 
   /// Creates an [InjectorWidget] based on an [Injector].
-  factory InjectorWidget({Key key, @required Injector injector, @required Widget child, bool autoDispose = true}) {
+  factory InjectorWidget(
+      {Key key,
+      @required Injector injector,
+      @required Widget child,
+      bool autoDispose = true}) {
     checkNotNull(injector, message: () => "injector can't be null");
     checkNotNull(child, message: () => "child can't be null");
 
@@ -23,11 +31,19 @@ class InjectorWidget extends StatefulWidget {
   }
 
   /// Creates an [InjectorWidget] based on a [BinderFunc].
-  factory InjectorWidget.bind({Key key, @required BindFunc bindFunc, @required Widget child, bool autoDispose = true}) {
+  factory InjectorWidget.bind(
+      {Key key,
+      @required BindFunc bindFunc,
+      @required Widget child,
+      bool autoDispose = true}) {
     checkNotNull(bindFunc, message: () => "binder can't be null");
     checkNotNull(child, message: () => "child can't be null");
 
-    return InjectorWidget(key: key, injector: Injector(bindFunc: bindFunc), child: child, autoDispose: autoDispose);
+    return InjectorWidget(
+        key: key,
+        injector: Injector(bindFunc: bindFunc),
+        child: child,
+        autoDispose: autoDispose);
   }
 
   @override
@@ -35,9 +51,11 @@ class InjectorWidget extends StatefulWidget {
 
   /// Gets an [Injector] from a ]BuildContext]
   static Injector of(BuildContext context) {
-    final injectorWidget = context.dependOnInheritedWidgetOfExactType<_InjectorInheritedWidget>();
+    final injectorWidget =
+        context.dependOnInheritedWidgetOfExactType<_InjectorInheritedWidget>();
     if (injectorWidget == null) {
-      throw InjectorWidgetError._internal("No `InjectorWidget` was found in the context.");
+      throw InjectorWidgetError._internal(
+          "No `InjectorWidget` was found in the context.");
     }
     return injectorWidget.injector;
   }
@@ -64,7 +82,8 @@ class _InjectorWidgetState extends State<InjectorWidget> {
 class _InjectorInheritedWidget extends InheritedWidget {
   final Injector injector;
 
-  const _InjectorInheritedWidget({@required this.injector, Key key, @required Widget child})
+  const _InjectorInheritedWidget(
+      {@required this.injector, Key key, @required Widget child})
       : super(key: key, child: child);
 
   @override

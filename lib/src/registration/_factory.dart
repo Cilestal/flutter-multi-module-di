@@ -1,4 +1,4 @@
-part of 'package:flutter_multi_module_di/multi_module_di.dart';
+part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 class _FactoryRegistration<T> extends _Registration<T>
     implements FactoryBinding<T> {

@@ -1,4 +1,4 @@
-part of 'package:flutter_multi_module_di/multi_module_di.dart';
+part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 class _ConfigurerBinderContainer extends _BinderContainer {
   final _BinderContainer _wrapped;

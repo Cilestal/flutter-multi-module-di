@@ -1,4 +1,4 @@
-part of 'package:flutter_multi_module_di/multi_module_di.dart';
+part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 /// Builder to construct a [Widget] for the given [Injector].
 typedef Widget InjectorWidgetBuilder(Injector injector);
@@ -41,7 +41,8 @@ class WithInstanceWidget<T> extends StatelessWidget {
     this.params,
   }) : super(key: key);
 
-  factory WithInstanceWidget({Key key, InstanceBuilder builder, String name, Params params}) {
+  factory WithInstanceWidget(
+      {Key key, InstanceBuilder builder, String name, Params params}) {
     checkNotNull(builder, message: () => "builder can't be null");
     return WithInstanceWidget._internal(
       key: key,

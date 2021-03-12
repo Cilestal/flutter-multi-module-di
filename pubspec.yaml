@@ -1,7 +1,7 @@
 name: flutter_multi_module_di
 description: A simple and modular dependency injection system for Flutter.
 version: 1.0.0
-author: Michael Lang
+repository: https://github.com/Cilestal/flutter-multi-module-di
 
 environment:
   sdk: ">=2.0.0 <3.0.0"

@@ -6,7 +6,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   final MainNavigator _navigator;
   final SharedPreferences _sharedPreferences;
 
-  MainBloc(this._navigator, this._sharedPreferences) : super(MainLoadingState());
+  MainBloc(this._navigator, this._sharedPreferences)
+      : super(MainLoadingState());
 
   @override
   Stream<MainState> mapEventToState(MainEvent event) async* {

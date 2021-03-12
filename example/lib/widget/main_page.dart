@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_multi_module_di/multi_module_di.dart';
+import 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 import 'package:flutter_multi_module_di_example/bloc/main_bloc.dart';
 import 'package:flutter_multi_module_di_example/di/main_module.dart';
 
@@ -13,7 +13,8 @@ class MainPage extends StatelessWidget {
         final widget = _MainWidget(i.get(), i.get(name: "test_1"));
 
         return BlocProvider(
-          create: (BuildContext context) => i.get<MainBloc>()..add(MainPageOpenedEvent()),
+          create: (BuildContext context) =>
+              i.get<MainBloc>()..add(MainPageOpenedEvent()),
           child: widget,
         );
       },
@@ -37,7 +38,8 @@ class _MainWidget extends StatelessWidget {
               body: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text("Test string = $_testSrt", style: TextStyle(fontSize: 24)),
+                    Text("Test string = $_testSrt",
+                        style: TextStyle(fontSize: 24)),
                   ],
                 ),
               ),

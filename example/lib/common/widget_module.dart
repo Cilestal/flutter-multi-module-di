@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_multi_module_di/multi_module_di.dart';
+import 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 abstract class WidgetModule implements Module {
   final BuildContext _context;

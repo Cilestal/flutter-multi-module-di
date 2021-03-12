@@ -1,4 +1,4 @@
-part of 'package:flutter_multi_module_di/multi_module_di.dart';
+part of 'package:flutter_multi_module_di/flutter_multi_module_di.dart';
 
 /// Utility mixin to easily use the injector in the [InjectorWidget].
 /// This can be applied to [State] or to [StatelessWidget] classes.
