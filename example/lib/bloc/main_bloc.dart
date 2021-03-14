@@ -3,7 +3,9 @@ import 'package:flutter_multi_module_di_example/navigator/main_navigator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
+  //ignore: unused_field
   final MainNavigator _navigator;
+  //ignore: unused_field
   final SharedPreferences _sharedPreferences;
 
   MainBloc(this._navigator, this._sharedPreferences)

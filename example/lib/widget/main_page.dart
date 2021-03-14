@@ -23,6 +23,7 @@ class MainPage extends StatelessWidget {
 }
 
 class _MainWidget extends StatelessWidget {
+  //ignore: unused_field
   final MainBloc _bloc;
   final String _testSrt;
 

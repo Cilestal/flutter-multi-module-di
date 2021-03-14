@@ -19,5 +19,5 @@ abstract class _Registration<T> extends Binding<T> with DisposableObject {
           type == other.type;
 
   @override
-  int get hashCode => "${name}:${type}".hashCode;
+  int get hashCode => "$name:$type".hashCode;
 }
