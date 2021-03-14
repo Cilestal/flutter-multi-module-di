@@ -12,3 +12,6 @@
 
 ## 2.0.1
 - Removed quiver
+
+## 2.0.2
+- Fixed dart analyze warnings
