@@ -7,23 +7,14 @@ import 'package:flutter_multi_module_di_example/di/main_module.dart';
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChildInjectorWidget(
+    return ChildInjectorBlocWidget<MainBloc>(
       childModule: MainModule(context),
-      injectorBuilder: (i) {
-        final widget = _MainWidget(i.get(), i.get(name: "test_1"));
-
-        return BlocProvider(
-          create: (BuildContext context) =>
-              i.get<MainBloc>()..add(MainPageOpenedEvent()),
-          child: widget,
-        );
-      },
+      injectorBuilder: (i) => _MainWidget(i.get(), i.get(name: "test_1")),
     );
   }
 }
 
 class _MainWidget extends StatelessWidget {
-  //ignore: unused_field
   final MainBloc _bloc;
   final String _testSrt;
 
@@ -33,14 +24,20 @@ class _MainWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: BlocBuilder<MainBloc, MainState>(
+        bloc: _bloc,
         builder: (context, state) {
           if (state is MainLoadedState) {
             return Scaffold(
               body: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text("Test string = $_testSrt",
-                        style: TextStyle(fontSize: 24)),
+                    InkWell(
+                      child: Text("Test string = $_testSrt",
+                          style: TextStyle(fontSize: 24)),
+                      onTap: () {
+                        _bloc.add(MainPageOpenedEvent());
+                      },
+                    ),
                   ],
                 ),
               ),

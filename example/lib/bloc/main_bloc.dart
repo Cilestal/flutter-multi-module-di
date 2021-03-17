@@ -14,6 +14,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   @override
   Stream<MainState> mapEventToState(MainEvent event) async* {
     if (event is MainPageOpenedEvent) {
+      yield MainLoadingState();
       await Future.delayed(Duration(seconds: 2));
       yield MainLoadedState();
     }

@@ -8,7 +8,7 @@ class MainModule extends WidgetModule {
 
   @override
   void configureWidget(Binder binder) {
-    binder..bindLazySingleton((i, _) => MainBloc(i.get(), i.get()));
+    binder..bindLazySingleton((i, _) => MainBloc(i.get(), i.get())..add(MainPageOpenedEvent()));
 
     binder..bindLazySingleton((i, _) => MainNavigator(i.get()));
   }

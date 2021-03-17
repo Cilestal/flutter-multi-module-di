@@ -85,3 +85,33 @@ class ChildInjectorWidget extends StatelessWidget with InjectorWidgetMixin {
     );
   }
 }
+
+class ChildInjectorBlocWidget<B> extends StatefulWidget {
+  final bool autoDispose;
+  final Module childModule;
+  final InjectorWidgetBuilder injectorBuilder;
+
+  ChildInjectorBlocWidget({
+    Key? key,
+    this.autoDispose = true,
+    required this.childModule,
+    required this.injectorBuilder,
+  }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _ChildInjectorStatefulWidgetState<B>();
+}
+
+class _ChildInjectorStatefulWidgetState<B> extends State<ChildInjectorBlocWidget<B>> with InjectorWidgetMixin {
+  Injector? _injector;
+
+  @override
+  Widget buildWithInjector(BuildContext context, Injector injector) {
+    _injector ??= Injector.fromModule(module: widget.childModule, parent: injector);
+    return InjectorWidget(
+      autoDispose: widget.autoDispose,
+      child: WithInjectorWidget(builder: widget.injectorBuilder),
+      injector: _injector!,
+    );
+  }
+}
