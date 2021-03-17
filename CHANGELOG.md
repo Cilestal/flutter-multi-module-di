@@ -17,4 +17,4 @@
 - Fixed dart analyze warnings
 
 ## 2.0.3
-- Added ChildInjectorBlocWidget
+- Added ChildInjectorStatefulWidget

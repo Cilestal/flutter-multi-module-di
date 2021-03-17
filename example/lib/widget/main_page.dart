@@ -7,7 +7,7 @@ import 'package:flutter_multi_module_di_example/di/main_module.dart';
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChildInjectorBlocWidget<MainBloc>(
+    return ChildInjectorStatefulWidget(
       childModule: MainModule(context),
       injectorBuilder: (i) => _MainWidget(i.get(), i.get(name: "test_1")),
     );
