@@ -90,12 +90,14 @@ class ChildInjectorStatefulWidget extends StatefulWidget {
   final bool autoDispose;
   final Module childModule;
   final InjectorWidgetBuilder injectorBuilder;
+  final Function(Injector? injector)? onDispose;
 
   ChildInjectorStatefulWidget({
     Key? key,
     this.autoDispose = true,
     required this.childModule,
     required this.injectorBuilder,
+    this.onDispose,
   }) : super(key: key);
 
   @override
@@ -112,5 +114,11 @@ class _ChildInjectorStatefulWidgetState extends State<ChildInjectorStatefulWidge
       child: WithInjectorWidget(builder: widget.injectorBuilder),
       injector: _injector ??= Injector.fromModule(module: widget.childModule, parent: injector),
     );
+  }
+
+  @override
+  void dispose() {
+    widget.onDispose?.call(_injector);
+    super.dispose();
   }
 }
