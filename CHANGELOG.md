@@ -21,3 +21,6 @@
 
 ## 2.0.4
 - Added onDispose callback
+
+## 2.0.5
+- Minor fixes

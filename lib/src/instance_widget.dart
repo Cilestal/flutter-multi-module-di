@@ -110,7 +110,7 @@ class _ChildInjectorStatefulWidgetState extends State<ChildInjectorStatefulWidge
   @override
   Widget buildWithInjector(BuildContext context, Injector injector) {
     return InjectorWidget(
-      autoDispose: widget.autoDispose,
+      autoDispose: false,
       child: WithInjectorWidget(builder: widget.injectorBuilder),
       injector: _injector ??= Injector.fromModule(module: widget.childModule, parent: injector),
     );
@@ -119,6 +119,9 @@ class _ChildInjectorStatefulWidgetState extends State<ChildInjectorStatefulWidge
   @override
   void dispose() {
     widget.onDispose?.call(_injector);
+    if (widget.autoDispose) {
+      _injector?.dispose();
+    }
     super.dispose();
   }
 }
