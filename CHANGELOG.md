@@ -18,3 +18,6 @@
 
 ## 2.0.3
 - Added ChildInjectorStatefulWidget
+
+## 2.0.4
+- Added onDispose callback
