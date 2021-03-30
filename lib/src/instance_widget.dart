@@ -88,14 +88,14 @@ class ChildInjectorWidget extends StatelessWidget with InjectorWidgetMixin {
 
 class ChildInjectorStatefulWidget extends StatefulWidget {
   final bool autoDispose;
-  final Module childModule;
+  final Module Function() childModuleBuilder;
   final InjectorWidgetBuilder injectorBuilder;
   final Function(Injector? injector)? onDispose;
 
   ChildInjectorStatefulWidget({
     Key? key,
     this.autoDispose = true,
-    required this.childModule,
+    required this.childModuleBuilder,
     required this.injectorBuilder,
     this.onDispose,
   }) : super(key: key);
@@ -112,7 +112,7 @@ class _ChildInjectorStatefulWidgetState extends State<ChildInjectorStatefulWidge
     return InjectorWidget(
       autoDispose: false,
       child: WithInjectorWidget(builder: widget.injectorBuilder),
-      injector: _injector ??= Injector.fromModule(module: widget.childModule, parent: injector),
+      injector: _injector ??= Injector.fromModule(module: widget.childModuleBuilder(), parent: injector),
     );
   }
 

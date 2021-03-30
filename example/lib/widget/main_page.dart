@@ -8,7 +8,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChildInjectorStatefulWidget(
-      childModule: MainModule(context),
+      childModuleBuilder: () => MainModule(context),
       injectorBuilder: (i) => _MainWidget(i.get(), i.get(name: "test_1")),
     );
   }

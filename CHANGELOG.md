@@ -24,3 +24,6 @@
 
 ## 2.0.5
 - Minor fixes
+
+## 2.0.6
+- Added childModuleBuilder
