@@ -29,16 +29,9 @@ You can use a dependency tree for the entire application, widget and component.
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChildInjectorWidget(
-      childModule: MainModule(context),
-      injectorBuilder: (i) {
-        final widget = _MainWidget(i.get(), i.get(name: "test_1"));
-
-        return BlocProvider(
-          create: (BuildContext context) => i.get<MainBloc>()..add(MainPageOpenedEvent()),
-          child: widget,
-        );
-      },
+    return ChildInjectorStatefulWidget(
+      childModuleBuilder: () => MainModule(context),
+      injectorBuilder: (i) => _MainWidget(i.get(), i.get(name: "test_1")),
     );
   }
 }
@@ -64,7 +57,7 @@ class MainModule extends WidgetModule {
 
   @override
   void configureWidget(Binder binder) {
-    binder..bindLazySingleton((i, _) => MainBloc(i.get(), i.get()));
+    binder..bindLazySingleton((i, _) => MainBloc(i.get(), i.get())..add(MainPageOpenedEvent()));
 
     binder..bindLazySingleton((i, _) => MainNavigator(i.get()));
   }
@@ -110,6 +103,22 @@ class SomeWidget extends StatelessWidget with InjectorWidgetMixin {
 
 
 # Full api
+
+## ChildInjectorStatefulWidget
+
+Creates a singleton module containing the child module and parent dependencies
+
+```dart
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChildInjectorStatefulWidget(
+      childModuleBuilder: () => MainModule(context),
+      injectorBuilder: (i) => _MainWidget(i.get(), i.get(name: "test_1")),
+    );
+  }
+}
+```
 
 ## ChildInjectorWidget
 
