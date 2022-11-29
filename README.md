@@ -3,6 +3,7 @@
 # Flutter multi module dependency injection
 
 An easy-to-use DI that works based on a dependency tree. 
+
 Medium article: https://medium.com/@michaelcilestal/multi-module-dependency-injection-in-flutter-5e07b3568d28
 
 # Installation
