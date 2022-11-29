@@ -139,6 +139,8 @@ class MainPage extends StatelessWidget {
 ```
 
 ## InjectorWidget
+[InheritedWidget] containing an [Injector].
+
 ```dart
 @override
 Widget build(BuildContext context) {
@@ -151,6 +153,8 @@ Widget build(BuildContext context) {
 ```
 
 ## InjectorWidgetMixin
+Utility mixin to easily use the injector in the [InjectorWidget]. This can be applied to [State] or to [StatelessWidget] classes.
+
 ```dart
 class TestWidget with InjectorWidgetMixin {
   @override
@@ -161,7 +165,9 @@ class TestWidget with InjectorWidgetMixin {
 }
 ```
 
-## WithInjectorWidget & WithInstanceWidget
+## WithInjectorWidget
+Widget able to build it's child from the [Injector] in the current [BuildContext].
+
 ```dart
 @override
 Widget build(BuildContext context) {
@@ -172,7 +178,11 @@ Widget build(BuildContext context) {
     },
   );
 }
+```
+## WithInstanceWidget
+Widget able to build it's child from the instance found in the [Injector] in the current [BuildContext].
 
+```dart
 @override
 Widget build(BuildContext context) {
   return WithInstanceWidget<SharedPreferences>(
@@ -184,6 +194,7 @@ Widget build(BuildContext context) {
 ```
 
 ## ModuleWidget
+Utility base [Widget] to set up bindings.
 ```dart
 class TestWidget extends ModuleWidget {
   @override
