@@ -20,7 +20,7 @@ dependencies:
 
 You can use a dependency tree for the entire application, widget and component.
 <p align="center">
-<img src="https://raw.githubusercontent.com/cilestal/flutter-multi-module-di/main/diag.png">
+<img src="https://raw.githubusercontent.com/cilestal/flutter-multi-module-di/main/diag.svg">
 </p>
 
 ## Usage
